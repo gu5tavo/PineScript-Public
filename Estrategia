@@ -1,0 +1,40 @@
+@version=2
+strategy(title="Estrategia", shorttitle="Estrategia", overlay=true, commission_value = 0.25, default_qty_type=strategy.percent_of_equity, default_qty_value = 100)
+
+/////////////////////////////////////////////////////////////
+//START - SET DATE RANGE
+
+// === BACKTEST RANGE ===
+FromMonth = input(defval = 2, title = "Desde Mes", minval = 1)
+FromDay   = input(defval = 8, title = "Desde Dia", minval = 1)
+FromYear  = input(defval = 2019, title = "Desde Año")
+ToMonth   = input(defval = 12, title = "Hasta Mes", minval = 1)
+ToDay     = input(defval = 31, title = "Hasta Dia", minval = 1)
+ToYear    = input(defval = 2019, title = "Hasta Año")
+
+startDate = time > timestamp(FromYear, FromMonth, FromDay, 00, 00)
+endDate = time < timestamp(ToYear, ToMonth, ToDay, 23, 59)
+withinTimeRange = startDate and endDate
+
+/////////////////////////////////////////////////////////////
+//END - SET DATE RANGE
+
+
+
+
+
+/////////////////////////////////////////////////////////////
+//START - TRADING RULES
+direction = input(defval=1, title = "Strategy Direction", type=integer, minval=-1, maxval=1)
+strategy.risk.allow_entry_in(direction == 0 ? strategy.direction.all : (direction < 0 ? strategy.direction.short : strategy.direction.long))
+
+buy = close < emaTend and volcrossup
+sell = emacortacrossdn
+
+strategy.entry("Compra", strategy.long, when = buy)
+strategy.entry("Venta", strategy.short, when = sell)
+/////////////////////////////////////////////////////////////
+//END - TRADING RULES
+
+
+///////////////////////////////////////////////////////////////////////////////////////////

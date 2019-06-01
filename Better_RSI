@@ -1,0 +1,23 @@
+//Better RSI by binjo1
+//https://www.tradingview.com/script/doZ3ncvu-Better-RSI/
+//@version=3
+study(title="Better Relative Strength Index", shorttitle="BRSI")
+src = close, len = input(14, minval=1, title="Length")
+up = rma(max(change(src), 0), len)
+down = rma(-min(change(src), 0), len)
+rsi = down == 0 ? 100 : up == 0 ? 0 : 100 - (100 / (1 + up / down))
+plot(rsi, color=green, linewidth = 2, transp = 0, title = "RSI")
+//hline(100, linestyle = dotted, color = #999999, title = "100 line")
+//hline(90, linestyle = dotted, color = #999999, title = "90 line")
+//hline(80, linestyle = dotted, color = #999999, title = "80 line")
+band70 = hline(70, linestyle = solid, color = white, title = "70 line")
+//hline(60, linestyle = dotted, color = #999999, title = "60 line")
+//hline(50, linestyle = solid, color = white, title = "50 line")
+//hline(40, linestyle = dotted, color = #999999, title = "40 line")
+band30 = hline(30, linestyle = solid, color = white, title = "30 line")
+//hline(20, linestyle = dotted, color = #999999, title = "20 line")
+//hline(10, linestyle = dotted, color = #999999, title = "10 line")
+//hline(0, linestyle = dotted, color = #999999, title = "0 line")
+fill(band70, band30, color=white, transp = 80, title = "Background")
+plot(crossover(rsi, 70) ? rsi : na, style = circles, color = #00ff00, linewidth = 6, title = "Cross Above 70")
+plot(crossunder(rsi, 30) ? rsi : na, style = circles, color = #ff0000, linewidth = 6, title = "Cross Below 30")
