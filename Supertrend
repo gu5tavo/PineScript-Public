@@ -1,0 +1,86 @@
+//Supertrend by Rajandran R. Modificado por Gustavo Cardelle
+//https://www.tradingview.com/script/sufFpGjC-Supertrend-V1-0-Buy-or-Sell-Signal/
+//https://www.marketcalls.in/amibroker/10-things-to-know-about-supertrend-v2-0-afl-code.html
+strategy("Supertrend", overlay = true)
+/////////////////////////////////////////////////////////////
+//START - SET DATE RANGE
+
+// === BACKTEST RANGE ===
+qty = input(100, "Buy quantity")
+FromMonth = input(defval = 4, title = "Desde Mes", minval = 1)
+FromDay   = input(defval = 4, title = "Desde Dia", minval = 1)
+FromYear  = input(defval = 2019, title = "Desde Año")
+ToMonth   = input(defval = 12, title = "Hasta Mes", minval = 1)
+ToDay     = input(defval = 31, title = "Hasta Dia", minval = 1)
+ToYear    = input(defval = 2019, title = "Hasta Año")
+
+startDate = time > timestamp(FromYear, FromMonth, FromDay, 00, 00)
+endDate = time < timestamp(ToYear, ToMonth, ToDay, 23, 59)
+withinTimeRange = startDate and endDate
+
+/////////////////////////////////////////////////////////////
+//END - SET DATE RANGE
+
+//Indicador
+//ema color
+EMAlarga=input(200,minval=1, title="EMA Larga")
+emaColor = input(true, title="EMA Tendencia")
+emaTend = ema(close, EMAlarga)
+emaTendUp() => hlc3 >= emaTend
+emaTendDown() => hlc3  < emaTend
+col = hlc3  >= emaTend ? lime : hlc3  < emaTend ? red : white
+
+//SUPERTREND
+Factor=input(3, minval=1,maxval = 100)
+Pd=input(7, minval=1,maxval = 100)
+
+Up=hl2-(Factor*atr(Pd))
+Dn=hl2+(Factor*atr(Pd))
+
+TrendUp=close[1]>TrendUp[1]? max(Up,TrendUp[1]) : Up
+TrendDown=close[1]<TrendDown[1]? min(Dn,TrendDown[1]) : Dn
+
+Trend = close > TrendDown[1] ? 1: close< TrendUp[1]? -1: nz(Trend[1],1)
+Tsl = Trend==1? TrendUp: TrendDown
+
+linecolor = Trend == 1 ? green : red
+
+plot(Tsl, color = linecolor , style = line , linewidth = 2,title = "SuperTrend")
+plotshape(cross(close,Tsl) and close>Tsl and (close > emaTend), style=shape.triangleup, location=location.top, color=green, size=size.small, title="Compra")
+plotshape(cross(Tsl,close) and close<Tsl and (close < emaTend), style=shape.triangledown, location=location.top, color=red, size=size.small, title="Venta")
+
+plot(emaColor and emaTend ? emaTend : na, title="EMA_Tendencia", style=line, linewidth=3, color=col)
+
+/////////////////////////////////////////////////////////////
+//START - TRADING RULES
+direction = input(defval=1, title = "Strategy Direction", type=integer, minval=-1, maxval=1)
+strategy.risk.allow_entry_in(direction == 0 ? strategy.direction.all : (direction < 0 ? strategy.direction.short : strategy.direction.long))
+
+buy = cross(close,Tsl) and close>Tsl
+sell = cross(Tsl,close) and close<Tsl
+
+strategy.entry("Compra", strategy.long, when = buy)
+strategy.exit("Cierre", "Compra", when = sell )
+
+strategy.entry("Venta", strategy.short, when = sell)
+strategy.close("Cierre Venta", when = buy )
+
+/////////////////////////////////////////////////////////////
+//END - TRADING RULES
+
+
+///////////////////////////////////////////////////////////////////////////////////////////
+
+// Create alert conditions
+alertcondition(condition=cross(close,Tsl) and close>Tsl or (cross(Tsl,close) and close<Tsl),
+     message="Operar", title="Operar")
+	 
+	 
+
+// Lineas
+//plot(rsi, color=green, linewidth=2, title="RSI", transp=0)
+//plot(emaC, color=red, linewidth=2, title="emaC", transp=0)
+//plot(emaL, color=purple, linewidth=2, title="emaL", transp=0)
+//plot(wma, color=orange, linewidth=2, title="WMA", transp=0)
+
+// Fondos
