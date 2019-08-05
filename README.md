@@ -17,3 +17,4 @@ EURUSD = 1000
 SPX = 100
 ETHUSD = 10
 ```
+[Script Publish](https://www.tradingview.com/script/nApbXCts-Trend-Channel-Gu5/)
