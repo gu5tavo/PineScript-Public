@@ -1,7 +1,7 @@
-## Tradingview
+# Tradingview
 Indicadores y estrategias en Pine script para TradingView
 
-# Trend Channel [Gu5]
+## Trend Channel [Gu5]
 
 SMA 200 determines the trend
 
