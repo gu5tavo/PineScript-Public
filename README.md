@@ -5,7 +5,7 @@ Indicadores y estrategias en Pine script para TradingView
 
 ## Trend Channel [Gu5]
 
-SMA 200 determines the trend
+SMA200 determines the trend
 
 Bullish trend, green candles. Downtrend, red candles.
 
@@ -18,3 +18,21 @@ SPX = 100
 ETHUSD = 10
 ```
 [Script Publish](https://www.tradingview.com/script/nApbXCts-Trend-Channel-Gu5/)
+
+
+SMA200 determina la tendencia
+
+Tendencia alcista, velas verdes. Tendencia bajista, velas rojas
+
+Show Channel muestra el canal del al SMA200
+
+El valor de 0.618 de SMA Range es arbitrario (No Backtesting). Cambia la amplitud de canal que determina cuando es rango (barras amarillas por estar muy cerca del SMA200, sin tendencia definida)
+
+Range Multiplier adapta el indicador a distintos mercados 
+```
+Setting recommended for SMA Range
+BTCUSD = 100
+EURUSD = 1000
+SPX = 100
+ETHUSD = 10
+```
