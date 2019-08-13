@@ -1,0 +1,110 @@
+//@version=4
+// Created by @gu5tavo71 08/2019
+// Github repo https://github.com/gu5tavo/Tradingview
+// Disclaimer: I am not a financial advisor. 
+//             For purpose educate only
+// If you have had a positive experience, you can buy me a beer ;)
+// BTC: 1MbHMN63WnsFYEavsGK4nMWSUoEiuiScny
+// Paypal: https://www.paypal.me/gu5tavo71
+///////////////////////////////////////////////////////////////
+study(title="Mix1 : Ema Cross + Trend Channel [Gu5]", shorttitle="Mix 1", overlay = true)
+ 
+//Input
+src = input(close, title="Source")
+ 
+smaL = input(200, title="SMA Length")
+lrange = input(type = input.float, defval = 0.618, title="SMA Range")
+mrange =  input(defval = 100, title="Range multiplier")
+//Setting recommended for SMA Range
+//BTCUSD = 100
+//EURUSD = 1000
+//SPX = 100
+//ETHUSD = 10
+ema1 = input(20, title="EMA 1")
+ema2 = input(50, title="EMA 2")
+ 
+showch = input(defval = true, title="Show Channel")
+showalert = input(defval = true, title="Show Alert")
+ 
+str1 = "EMA 1 Cross EMA 2",                       str2 = "EMA 2 Cross Source"
+strinput = input(str1, "Strategy", options=[str1, str2])
+strclose = strinput != str2
+ 
+//Setting
+Color00 = #f57f17//Orange
+Color01 = #071808//Dark Green
+Color02 = #006400//Green
+Color03 = #388e3c//Light Green
+Color04 = #210505//Dark Red
+Color05 = #8B0000//Red
+Color06 = #b71c1c//Light Red
+Color07 = #808080//Gray
+Color08 = #000000//Black
+Color09 = #ffffff//White
+ 
+chTop = sma(src, smaL) * ((lrange/mrange) + 1)
+chBottom = sma(src, smaL) * (1 -(lrange/mrange))
+range = ((open <= chTop) or (close <= chTop)) and ((open >= chBottom) or (close >= chBottom))
+ 
+SMAtr = sma(src, smaL)
+SMAup() => src >= SMAtr
+SMAdn() => src  < SMAtr
+colsma = range ? Color00 : SMAup() ? Color02 : SMAdn() ? Color05 : na
+ 
+EMATrend1 = ema(src, ema1)
+EMATrend1Up() => src >= EMATrend1
+EMATrend1Down() => src < EMATrend1
+colema1 = range ? Color00 : src >= EMATrend1 ? Color02 : src < EMATrend1 ? Color05 : na
+EMATrend2 = ema(src, ema2)
+EMATrend2Up() => src >= EMATrend2
+EMATrend2Down() => src < EMATrend2
+colema2 = range ? Color00 : src >= EMATrend2 ? Color03 : src < EMATrend2 ? Color06 : na
+ 
+//Drawing
+plot(SMAtr, style = plot.style_line, linewidth = 3, color = colsma, title = "SMA Trend")
+barcolor(range ? Color00 : (src > SMAtr) and (open <= close) ? Color02 : (src > SMAtr) and (open >= close) ? Color03 : (src < SMAtr) and (open >= close) ? Color05 : (src < SMAtr) and (open <= close) ? Color06 : Color07 )
+pchTop = plot(showch ? chTop : na, color = colsma, linewidth = 1, title = "Top Channel")
+pchBottom = plot(showch ? chBottom : na, color = colsma, linewidth = 1, title = "Bottom Channel")
+fill(pchTop, pchBottom, title="Range Fill", color = colsma)
+ 
+fema1 = plot(ema1 and EMATrend1 ? EMATrend1 : na, linewidth = 2, color = colema1, title="EMA 1")
+fema2 = plot(ema1 and EMATrend2 ? EMATrend2 : na, linewidth = 3, color = colema2, title="EMA 2")
+fill(fema1, fema2, title="Fill EMA Cross", color = colema2)
+emaCrossSignal = cross (EMATrend1, EMATrend2)
+ 
+//Setting Alert Signal
+emaBuySignal = range or SMAdn() ? na : crossover (EMATrend1, EMATrend2)
+emaBuySignalClose = crossunder ((strclose ? EMATrend1 : src), EMATrend2)
+emaSellSignal = range or SMAup() ? na : crossunder (EMATrend1, EMATrend2)
+emaSellSignalClose = crossover ((strclose ? EMATrend1 : src), EMATrend2)
+ 
+ebs = barssince (emaBuySignal)
+ebsc = barssince (emaBuySignalClose)
+ess = barssince (emaSellSignal)
+essc = barssince (emaSellSignalClose)
+ebsf = ebsc [1] > ebs
+essf = essc [1] > ess
+ 
+emac = plot(emaCrossSignal ? EMATrend1 : na, style = plot.style_cross, linewidth = 4, color = Color00, title = "Cross")
+ 
+buy = emaBuySignal
+buyclose = ebsf and emaBuySignalClose
+sell = emaSellSignal
+sellclose = essf and emaSellSignalClose
+ 
+//Drawing Alert Signal
+plotshape(showalert and buy , style = shape.triangleup, location = location.top, color = Color02, size = size.small, title = "Buy")
+plotshape(showalert and buyclose, style = shape.xcross, location = location.top, color = Color02, size = size.small, title = "Close Buy")
+plotshape(showalert and sell, style = shape.triangledown, location = location.top, color = Color05, size = size.small, title = "Sell")
+plotshape(showalert and sellclose, style = shape.xcross, location = location.top, color = Color05, size = size.small, title = "Close Sell")
+plotshape(showalert and (buy or buyclose or sell or sellclose) ? na : emaCrossSignal, style = shape.xcross, location = location.top, color = Color00, size = size.small, title = "Cross")
+bgcolor(showalert and buy ? Color02 : showalert and buyclose ? Color03 : showalert and sell ? Color05 : showalert and sellclose ? Color06 : na, transp = 70, title = " BG Cross")
+ 
+//Alert
+alertcondition(buy, title="Buy", message="Buy only Trend")
+alertcondition(buyclose, title="Buy Close", message="Buy Close")
+alertcondition(sell, title="Sell", message="Sell only Trend")
+alertcondition(buyclose, title="Sell Close", message="Sell Close")
+alertcondition(buy or buyclose or sell or sellclose, title="Cross", message="Cross only Trend")
+alertcondition(emaCrossSignal, title="ALL Cross", message="ALL Cross")
+ 
