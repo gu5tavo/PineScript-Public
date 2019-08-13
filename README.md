@@ -39,7 +39,9 @@ ETHUSD = 10
 
 ## Mix1 : Ema Cross + Trend Channel [Gu5]
 
-Based on Trend Channel [Gu5] https://www.tradingview.com/script/nApbXCts-Trend-Channel-Gu5/
+[Script Publish](https://www.tradingview.com/script/YflOVb17-Mix1-Ema-Cross-Trend-Channel-Gu5/)
+
+Based on [Trend Channel [Gu5]] (https://www.tradingview.com/script/nApbXCts-Trend-Channel-Gu5/)
 
 Ema-crossover is added
 
@@ -47,7 +49,7 @@ Crossing alerts, only on trend
 
 --
 
-Basado en mi anterior indicador,  Trend Channel [Gu5] https://www.tradingview.com/script/nApbXCts-Trend-Channel-Gu5/
+Basado en mi anterior indicador,  [Trend Channel [Gu5]] (https://www.tradingview.com/script/nApbXCts-Trend-Channel-Gu5/)
 
 Se agrega Cruce de Medias Moviles (Ema-crossover)
 
