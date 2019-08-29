@@ -48,4 +48,3 @@ barcolor(range ? Color00 : (src > SMAtr) and (open <= close) ? Color02 : (src > 
 pchTop = plot(showch ? chTop : na, color = colsma, linewidth = 1, title = "Top Channel")
 pchBottom = plot(showch ? chBottom : na, color = colsma, linewidth = 1, title = "Bottom Channel")
 fill(pchTop, pchBottom, title="Range Fill", color = colsma)
- 
