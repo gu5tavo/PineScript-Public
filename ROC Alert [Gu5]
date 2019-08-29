@@ -30,4 +30,4 @@ alertrocdn = crossunder (roc , -roca)
 bgcolor(alertrocup or alertrocdn ? color.orange : na, transp=70)
  
 //Alert
-alertcondition(alertrocup or alertrocdn, title="ROC Alert", message="ROC Alert")
+alertcondition(alertrocup or alertrocdn, title="ROC Alert", message = "ROC Alert")
