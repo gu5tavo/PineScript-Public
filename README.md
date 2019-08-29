@@ -73,7 +73,7 @@ Setting recommended for ROC Alert
 
 --
 
-Si te fue util este indicador, puedes comprarme una cerveza ;)
+Si alguno de estos indicadores te fue util, puedes comprarme una cerveza ;)
 
 BTC: 1MbHMN63WnsFYEavsGK4nMWSUoEiuiScny
 
