@@ -51,6 +51,20 @@ Se agrega Cruce de Medias Moviles (Ema-crossover)
 
 Las alertas solo son en favor a la tendencia
 
+
+***
+## ROC Alert [Gu5]
+[Script Publish](https://www.tradingview.com/script/KvX3zVVE-ROC-Alert-Gu5/)
+
+If the value drops (or rises) SHARPLY, we will receive an alert
+
+--
+
+Cuando el valor sube ( o baja) ABRUPATMENTE, recibiremos un alerta
+
+"ROC Length" setea la cantidad de velas a monitorear, (por defecto en 4 períodos)
+
+"% Change" setea el porcentaje del valor, (por defecto en 1.5%) 
 .
 
 .
