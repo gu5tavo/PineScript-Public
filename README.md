@@ -62,9 +62,11 @@ If the value drops (or rises) SHARPLY, we will receive an alert
 
 Cuando el valor sube ( o baja) ABRUPATMENTE, recibiremos un alerta
 
+```
+Setting recommended for ROC Alert
 "ROC Length" setea la cantidad de velas a monitorear, (por defecto en 4 períodos)
-
 "% Change" setea el porcentaje del valor, (por defecto en 1.5%) 
+```
 .
 
 .
