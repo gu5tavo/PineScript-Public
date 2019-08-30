@@ -67,6 +67,23 @@ Setting recommended for ROC Alert
 "ROC Length" setea la cantidad de velas a monitorear, (por defecto en 4 períodos)
 "% Change" setea el porcentaje del valor, (por defecto en 1.5%) 
 ```
+
+***
+## ADX Di+ Di- [Gu5]
+[Script Publish](https://www.tradingview.com/script/KvX3zVVE-ROC-Alert-Gu5/)
+
+Fill indicates Strong Trend
+
+Cross indicates End of Trend
+
+--
+
+El relleno indica una fuerte tendencia cuando el Di supera "Level Trend"
+
+El cruce de Di+ con Di- indica el fin de la tendencia
+
+Cuando el valor del ADX es menor a "Level Range", estamos en Rango
+
 .
 
 .
