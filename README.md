@@ -70,7 +70,7 @@ Setting recommended for ROC Alert
 
 ***
 ## ADX Di+ Di- [Gu5]
-[Script Publish](https://www.tradingview.com/script/KvX3zVVE-ROC-Alert-Gu5/)
+[Script Publish](https://www.tradingview.com/script/RNcqYq6w-ADX-Di-Di-Gu5/)
 
 Fill indicates Strong Trend
 
