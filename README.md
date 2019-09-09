@@ -128,6 +128,7 @@ Para saber cuando no hay tendencia y estamos en rango, recomiendo usar mu indica
 
 El cruce de K & D nos muestra cundo el mercado esta en sobre-compra o sobre-venta
 
+Las alertas con banderas ayudan a visualizar mas claramente, evitando las alertas duplicadas
 .
 
 .
