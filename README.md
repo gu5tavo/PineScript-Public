@@ -114,6 +114,20 @@ Continuando con la misma linea de diseño de mis anteriores indicadores
 
 Destaca el cruce de medias para una mejor visualizacion
 
+***
+## Stochastic [Gu5]
+[Script Publish](https://www.tradingview.com/script/RNcqYq6w-ADX-Di-Di-Gu5/)
+
+When we are out of trend (I recommend using "Trend Channel [Gu5]")
+
+Stochastic shows overbought / oversold
+
+--
+
+Para saber cuando no hay tendencia y estamos en rango, recomiendo usar mu indicador "Trend Channel [Gu5]"
+
+El cruce de K & D nos muestra cundo el mercado esta en sobre-compra o sobre-venta
+
 .
 
 .
