@@ -116,7 +116,7 @@ Destaca el cruce de medias para una mejor visualizacion
 
 ***
 ## Stochastic [Gu5]
-[Script Publish](https://www.tradingview.com/script/RNcqYq6w-ADX-Di-Di-Gu5/)
+[Script Publish](https://www.tradingview.com/script/K5Wd0xCy-Stochastic-Gu5/)
 
 When we are out of trend (I recommend using "Trend Channel [Gu5]")
 
