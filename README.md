@@ -118,7 +118,7 @@ Destaca el cruce de medias para una mejor visualizacion
 ## Stochastic [Gu5]
 [Script Publish](https://www.tradingview.com/script/K5Wd0xCy-Stochastic-Gu5/)
 
-When we are out of trend (I recommend using "Trend Channel [Gu5]")
+To know if we are in range, I recommend my other indicator "Trend Channel [Gu5]"
 
 Stochastic shows overbought / oversold
 
