@@ -126,13 +126,11 @@ Stochastic shows overbought / oversold
 
 Para saber cuando no hay tendencia y estamos en rango, recomiendo usar mu indicador "Trend Channel [Gu5]"
 
-El cruce de K & D nos muestra cundo el mercado esta en sobre-compra o sobre-venta
+El cruce de K & D nos muestra cuando el mercado esta en sobre-compra o sobre-venta
 
 Las alertas con banderas ayudan a visualizar mas claramente, evitando las alertas duplicadas
 .
 
-.
-
 ***
 ## RSI [Gu5]
 [Script Publish](https://www.tradingview.com/script/YflOVb17-Mix1-Ema-Cross-Trend-Channel-Gu5/)
@@ -144,38 +142,12 @@ Show Cross Line
 Same design of my previous indicators
 
 ```
-Setting recommended for EURUSD
-
+Setting recommended for EURUSD:
 Length = 14
 Oversold = 68
 Overbought = 32
 
-Other markets try
-
-Length = 14
-Oversold = 70
-Overbought =30
-```
-
-***
-## RSI [Gu5]
-[Script Publish](https://www.tradingview.com/script/YflOVb17-Mix1-Ema-Cross-Trend-Channel-Gu5/)
-
-Highlights Oversold and Overbought
-
-Show Cross Line
-
-Same design of my previous indicators
-
-```
-Setting recommended for EURUSD
-
-Length = 14
-Oversold = 68
-Overbought = 32
-
-Other markets try
-
+Other markets try:
 Length = 14
 Oversold = 70
 Overbought =30
@@ -183,7 +155,7 @@ Overbought =30
 
 --
 
-El indicador destaca cuando el mercado esta en SobreCompra o SobreVenta
+El indicador destaca cuando el mercado esta en sobre-compra o sobre-venta
 
 Para una mejor visualizacion, marca con un cruce cuando finaliza el movimiento
 
