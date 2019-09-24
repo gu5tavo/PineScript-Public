@@ -133,7 +133,65 @@ Las alertas con banderas ayudan a visualizar mas claramente, evitando las alerta
 
 .
 
+***
+## RSI [Gu5]
+[Script Publish](https://www.tradingview.com/script/YflOVb17-Mix1-Ema-Cross-Trend-Channel-Gu5/)
+
+Highlights Oversold and Overbought
+
+Show Cross Line
+
+Same design of my previous indicators
+
+```
+Setting recommended for EURUSD
+
+Length = 14
+Oversold = 68
+Overbought = 32
+
+Other markets try
+
+Length = 14
+Oversold = 70
+Overbought =30
+```
+
+***
+## RSI [Gu5]
+[Script Publish](https://www.tradingview.com/script/YflOVb17-Mix1-Ema-Cross-Trend-Channel-Gu5/)
+
+Highlights Oversold and Overbought
+
+Show Cross Line
+
+Same design of my previous indicators
+
+```
+Setting recommended for EURUSD
+
+Length = 14
+Oversold = 68
+Overbought = 32
+
+Other markets try
+
+Length = 14
+Oversold = 70
+Overbought =30
+```
+
 --
+
+El indicador destaca cuando el mercado esta en SobreCompra o SobreVenta
+
+Para una mejor visualizacion, marca con un cruce cuando finaliza el movimiento
+
+Continuando con el mismo estilo de diseño de mis anteriores indicadores
+
+--
+
+If any of these indicators were useful, you can buy me a beer;)
 
 Si alguno de estos indicadores te fue util, puedes comprarme una cerveza ;)
 
