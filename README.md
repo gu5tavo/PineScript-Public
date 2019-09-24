@@ -137,7 +137,7 @@ Las alertas con banderas ayudan a visualizar mas claramente, evitando las alerta
 
 Highlights Oversold and Overbought
 
-Show Cross Line
+Show Cross Line when the momentum ends
 
 Same design of my previous indicators
 
