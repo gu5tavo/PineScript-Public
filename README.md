@@ -133,7 +133,7 @@ Las alertas con banderas ayudan a visualizar mas claramente, evitando las alerta
 
 ***
 ## RSI [Gu5]
-[Script Publish](https://www.tradingview.com/script/YflOVb17-Mix1-Ema-Cross-Trend-Channel-Gu5/)
+[Script Publish](https://www.tradingview.com/script/UcdEQYkO-RSI-Gu5/)
 
 Highlights Oversold and Overbought
 
