@@ -35,7 +35,7 @@ d = sma(k, smoothD)
 // col_fall_above = #B2DFDB 
 // col_fall_below = #EF5350 
 // col_macd = #0094ff 
-// col_signal = #ff6a00 
+// col_signal = #ff6a00
 // Calculating MACD 
 fast_ma = sma_source ? sma(src, fast_length) : ema(src, fast_length)
 slow_ma = sma_source ? sma(src, slow_length) : ema(src, slow_length)
