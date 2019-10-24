@@ -1,0 +1,30 @@
+//@version=4
+// Original Indicator: CM Opening Range-Asia and Europe Session by ChrisMoody
+// Actual Study Version: @gu5tavo71 for @kidcuauh
+// 
+// Github repo https://github.com/gu5tavo/Tradingview
+// Disclaimer: I am not a financial advisor. 
+//             For purpose educate only
+// If you have had a positive experience, you can buy me a beer ;)
+// BTC: 1MbHMN63WnsFYEavsGK4nMWSUoEiuiScny
+// Paypal: https://www.paypal.me/gu5tavo71
+/////////////////////////////////////////////////////////////////////////////
+study(title="Weekly Open v2 [Gu5]", shorttitle= "Weekly Open", overlay= true)
+ 
+//Input
+src = input(open, title= "Source")
+mOpen = input('1700-1659', type= input.session, title= "Market Open")
+showw = input(defval= false, title= "Show Week")
+ 
+//Setting
+tOpen = time(timeframe.period, mOpen)
+wOpen = tOpen > 0
+wOpenB = barssince(wOpen)
+sOpen = tOpen > 0 and wOpenB[1] !=0 
+sOpenW = valuewhen(sOpen, src, 0)
+wOpenColor = sOpenW != sOpenW[1] ? na : color.orange
+ 
+//Drawing
+bgcolor(showw and wOpen ? color.silver : na, transp= 85)
+plot(sOpenW, title= "Open Week", color= wOpenColor,
+	 linewidth= 2, style= plot.style_line)
