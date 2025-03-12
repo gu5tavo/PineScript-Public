@@ -1,4 +1,4 @@
-**Tradingview Pinescript syntax highlighting for Notepad++**
+## **Tradingview Pinescript syntax highlighting for Notepad++**
 
 Custom syntax highlighting for languages using its User Defined Language (UDL) functionality.
 
