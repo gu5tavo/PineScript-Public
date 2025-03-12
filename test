@@ -1,2 +1,0 @@
-data1
-data2
